@@ -13,7 +13,7 @@
     <div class="container posts-container">
         <div class="post">
             <div class="content">
-                <h2 class="title"><a href="./post/{{ $post->id  }}">{{ $post->title }}</a></h2>
+                <h2 class="title"><a href="#">{{ $post->title }}</a></h2>
                 @if(isset($post->image))
                     <div class="img-container">
                         <img src="{{ asset($post->image) }}" alt="Cover" class="cover-img">
