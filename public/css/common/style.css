@@ -35,18 +35,18 @@ body {
 }
 
 .posts-container {
-    /*width: 80vw;*/
+    max-width: 70%;
 }
 
 .post {
     background-color: #4F4F4F;
     border-radius: 20px;
-    padding: 30px 40px;
+    padding: 20px 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 70%;
     margin: 0 auto 20px;
+    transition: all .2s ease;
 }
 
 .post .content {
@@ -59,6 +59,10 @@ body {
 .post .content .title a {
     text-decoration: none;
     color: #fff;
+}
+
+.post:hover {
+    transform: scale(1.02);
 }
 
 .likes {
