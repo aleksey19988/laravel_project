@@ -3,6 +3,7 @@
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TestController;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,11 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', PostController::class . '@index');
 
 Route::get('/post', PostController::class . '@index');
+
+Route::get('/post/{id}', function($id) {
+    $controller = new PostController();
+    return $controller->showPost($id);
+});
 
 Route::get('/index/{id}/{action}', function ($id, $action) {
     $class = new IndexController();

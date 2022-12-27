@@ -12,5 +12,8 @@ class Post extends Model
     /**
      * @var mixed
      */
+    /**
+     * @var mixed
+     */
     public $likesIcon;
 }

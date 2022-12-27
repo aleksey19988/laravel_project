@@ -11,13 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
     <style> @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap'); </style>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/common/style.css') }}" >
+    <link rel="stylesheet" type="text/css" href="@yield('style')" >
 
     <title>@yield('title')</title>
 </head>
 <body>
     <div class="header">
         <div class="container">
-            <a href="./" class="blog-title">@yield('title')</a>
+            <a href="./" class="blog-title">MY BLOG</a>
             <a href="./login" class="log-in">Log In</a>
         </div>
     </div>

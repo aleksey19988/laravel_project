@@ -1,0 +1,52 @@
+.content-title {
+    margin: 5vh 0;
+}
+
+.posts-container {
+    margin-top: 5vh;
+}
+
+.post {
+    background-color: #4F4F4F;
+    border-radius: 20px;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto 20px;
+    transition: all .2s ease;
+}
+
+.post .content {
+    min-width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.post .content .title a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.likes {
+    cursor: pointer;
+    font-size: 20px;
+    width: max-content;
+}
+
+.post .content .content-text {
+    padding-right: 30px;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+    /*background-image: url("http://laravel.project/public/img/purple_rectangle.png");*/
+}
+
+.cover-img {
+    /*max-width: 50px;*/
+    /*max-height: 100px;*/
+}

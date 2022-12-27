@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    const MAX_CONTENT_LENGTH_WITH_IMAGE = 45;
-    const MAX_CONTENT_LENGTH_WITHOUT_IMAGE = 60;
+    const MAX_CONTENT_LENGTH_WITH_IMAGE = 100;
+    const MAX_CONTENT_LENGTH_WITHOUT_IMAGE = 150;
 
     private $likesIcons = [
         '&#129505;',
@@ -20,29 +20,30 @@ class PostController extends Controller
         '&#10084;',
     ];
 
-    public $likesIcon;
-
     public function index()
     {
         $posts = Post::all();
 
         if (!empty($posts)) {
             $posts = $this->cutPostContent($posts);
-        }
 
-        $posts = $this->setLikesIcons($posts);
+            foreach ($posts as $post) {
+                $post = $this->setLikesIcon($post);
+            }
+        }
 
         return view('home', [
             'posts' => $posts,
         ]);
     }
 
-    private function cutPostContent(Collection $posts): array
+    private function cutPostContent($posts): array
     {
         $result = [];
 
         foreach ($posts as $post) {
             if (isset($post->image)) {
+                $length = strlen($post->content);
                 if (strlen($post->content) > self::MAX_CONTENT_LENGTH_WITH_IMAGE) {
                     $post->content = substr($post->content, 0, self::MAX_CONTENT_LENGTH_WITH_IMAGE) . '...';
                 }
@@ -55,18 +56,27 @@ class PostController extends Controller
         return $result;
     }
 
-    private function setLikesIcons($posts)
+    private function setLikesIcon($post)
     {
-        foreach($posts as $post) {
             $icons = $this->getLikesIcons();
             $post->likesIcon = $icons[rand(0, count($this->likesIcons) - 1)];
-        }
 
-        return $posts;
+            return $post;
     }
 
     public function getLikesIcons(): array
     {
         return $this->likesIcons;
+    }
+
+    public function showPost(int $id)
+    {
+        $post = Post::query()->find($id);
+
+        $post = $this->setLikesIcon($post);
+
+        return view('post', [
+            'post' => $post,
+        ]);
     }
 }
