@@ -9,7 +9,7 @@
 .post {
     background-color: #4F4F4F;
     border-radius: 20px;
-    padding: 20px 40px;
+    padding: 2vh 4vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -43,10 +43,8 @@
     display: flex;
     justify-content: center;
     margin: 30px 0;
-    /*background-image: url("http://laravel.project/public/img/purple_rectangle.png");*/
-}
-
-.cover-img {
-    /*max-width: 50px;*/
-    /*max-height: 100px;*/
+    min-height: 30vh;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
 }

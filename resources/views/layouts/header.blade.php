@@ -18,8 +18,11 @@
 <body>
     <div class="header">
         <div class="container">
-            <a href="./" class="blog-title">MY BLOG</a>
-            <a href="./login" class="log-in">Log In</a>
+            <a href="./" class="blog-title">@yield('header title')</a>
+            <div>
+                <a href="./login" class="log-in">Log In</a>
+                <a href="./backend" class="log-in">Admin</a>
+            </div>
         </div>
     </div>
 <div class="container">

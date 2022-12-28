@@ -6,7 +6,7 @@ use App\Models\Post;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class BackendController extends Controller
 {
     const MAX_CONTENT_LENGTH_WITH_IMAGE = 100;
     const MAX_CONTENT_LENGTH_WITHOUT_IMAGE = 150;
@@ -32,8 +32,25 @@ class PostController extends Controller
             }
         }
 
-        return view('index', [
+        return view('backend.index', [
             'posts' => $posts,
+        ]);
+    }
+
+    public function create()
+    {
+        return view('backend.create', []);
+    }
+
+    public function getPostsList()
+    {
+        $posts = Post::all();
+
+        $attributes = $posts[0]->getAttributes();
+
+        return view('backend.posts-list', [
+            'attributes' => $attributes,
+            'posts' => $this->cutPostContent($posts),
         ]);
     }
 

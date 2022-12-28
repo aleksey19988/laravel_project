@@ -1,0 +1,9 @@
+.list-group a {
+    background-color: #4F4F4F;
+    color: #fff;
+    transition: all .3s ease;
+}
+
+.table tr {
+    vertical-align: middle;
+}
